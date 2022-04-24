@@ -1,0 +1,2 @@
+# NJU_admission_report
+或许用于简化走读生每日入校申请
