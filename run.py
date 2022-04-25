@@ -1,4 +1,3 @@
-from sympy import EX
 from dtable import NjuTableAuth
 import base64
 from dotenv import load_dotenv
