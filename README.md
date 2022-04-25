@@ -13,7 +13,7 @@
     - `username`: 学号
     - `password`: 南京大学统一认证的密码
     - `name`: 姓名+学号，对应表单的“人员”,姓名学号之间加空格（例如：张三 MG12345678）
-    - `skm_pic`: 苏康码截图，必须为base64格式（转换可以使用utils.py文件）
+    - `skm_pic`: 苏康码截图，必须为base64格式（转换可以使用utils.py文件，复制粘贴txt文件中的文本，不要直接复制控制台的输出，确保上传的文本不要出现换行）
     - `xcm_pic`: 行程码截图，必须为base64格式
 3. 回到 Action 选项卡，重新运行 Action，或者静待自动打卡。
 4. 项目默认是在 5:00（北京时间13:00）自动打卡，可以根据需要修改 .github/workflows/report.yml 中 cron 项。`schedule:- cron: '0 5 * * *`字段使用UTC时间，北京时间快8小时。5个参数分别对应`minute、hour、day(month)、month、day(week)`，一般修改第二个参数（5对应北京时间13点）。具体参考https://crontab.guru/examples.html。

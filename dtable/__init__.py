@@ -119,5 +119,4 @@ class NjuTableAuth:
         }
         submit_url = f'{ROOT_URL}/api/v2.1/form-submit/{token}/'
         r = self.session.post(submit_url, data=form_data, headers=headers)
-        print(r.status_code)
         return r.status_code == 200

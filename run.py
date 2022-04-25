@@ -5,7 +5,6 @@ import logging
 import os
 ROOT_URL = 'https://table.nju.edu.cn'
 TABLE_TOKEN = 'acb58836-10ae-4ec0-a2bf-8cce3245a373'
-TABLE_TOKEN = '01ef11fc-5a0e-4adb-9332-d1f119f13cad' # TODO:测试代码待删除
 
 
 
