@@ -1,0 +1,5 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+dtable/__pycache_/
+# test files
+for_test/
