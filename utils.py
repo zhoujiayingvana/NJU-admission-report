@@ -1,8 +1,8 @@
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 import base64
-from PIL import Image
-from io import BytesIO
+# from PIL import Image
+# from io import BytesIO
 
 
 def convert2base64(input_path, output_path):
