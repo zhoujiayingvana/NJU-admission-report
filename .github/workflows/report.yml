@@ -28,7 +28,6 @@ jobs:
           NJU_USERNAME: ${{ secrets.username }}
           NJU_PASSWORD: ${{ secrets.password }}
           NAME: ${{ secrets.name }}
-          SKM_PIC: ${{ secrets.skm_pic }}
-          XCM_PIC: ${{ secrets.xcm_pic }}
+          AES_KEY: ${{ secrets.aes_key }}
         run: |
           python run.py
