@@ -2,9 +2,9 @@ name: Admission Report Action
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
+#  push:
+#    branches:
+#      - master
   
   schedule:
     - cron: '0 5 * * *'
