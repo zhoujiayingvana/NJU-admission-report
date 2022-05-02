@@ -21,6 +21,12 @@ jobs:
           python-version: 3.9
       - name: Install Dependencies
         run: |
+          cp -r ./fonts/ /usr/share/fonts/my_fonts/
+          chmod -R 777 /usr/share/fonts/my_fonts
+          fc-cache -fv
+          sudo timedatectl set-timezone "Asia/Shanghai"
+          timedatectl status
+          chmod -R 777 ./driver
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run Script
@@ -28,6 +34,7 @@ jobs:
           NJU_USERNAME: ${{ secrets.username }}
           NJU_PASSWORD: ${{ secrets.password }}
           NAME: ${{ secrets.name }}
-          AES_KEY: ${{ secrets.aes_key }}
+          PHONE: ${{ secrets.phone }}
+          SKM_TOKEN: ${{ secrets.skm_token }}
         run: |
           python run.py
