@@ -23,6 +23,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          chmod -R 777 /driver/chromedriver
       - name: Run Script
         env:
           NJU_USERNAME: ${{ secrets.username }}
