@@ -3,3 +3,4 @@ python-dotenv
 pycryptodome
 selenium
 pytz
+webdriver-manager
