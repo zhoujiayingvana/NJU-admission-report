@@ -21,12 +21,13 @@ jobs:
           python-version: 3.9
       - name: Install Dependencies
         run: |
+          cp -r ./fonts/ /usr/share/fonts/my_fonts/
+          chmod -R 777 /usr/share/fonts/my_fonts
+          fc-cache -fv
+          fc-list
+          chmod -R 777 ./driver
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          chmod -R 777 ./driver
-          sudo apt-get update
-          sudo apt-get upgrade
-          sudo apt-get install ttf-arphic-uming ttf-wqy-zenhei
       - name: Run Script
         env:
           NJU_USERNAME: ${{ secrets.username }}
