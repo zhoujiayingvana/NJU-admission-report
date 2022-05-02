@@ -3,6 +3,7 @@ import json
 from pytz import timezone
 import time
 import datetime
+import os
 
 option = webdriver.ChromeOptions()
 option.add_argument(
@@ -12,6 +13,11 @@ option.add_argument('window-size=150,1080')
 option.add_experimental_option(
     "excludeSwitches", ['enable-automation', 'enable-logging'])
 option.add_argument('--hide-scrollbars')  # seems invalid
+option.add_argument('--headless')
+option.add_argument('--no-sandbox')
+option.add_argument('--disable-gpu')
+option.add_argument('--disable-dev-shm-usage')
+
 
 
 def get_xcm_img(phone, date=None):
