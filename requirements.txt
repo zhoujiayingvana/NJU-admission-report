@@ -1,5 +1,4 @@
 requests
 python-dotenv
-pycryptodome
 selenium
 pytz
