@@ -24,11 +24,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           chmod -R 777 ./driver
-          sudo chmod 755 /usr/share/fonts/truetype/* 
-          sudo fc-cache －fv
-          #sudo apt-get update
-          #sudo apt-get upgrade
-          #sudo apt-get install ttf-arphic-uming ttf-wqy-zenhei fonts-ipafont-mincho fonts-ipafont-gothic ttf-unfonts-core
+          sudo apt-get update
+          sudo apt-get upgrade
+          sudo apt-get install ttf-arphic-uming ttf-wqy-zenhei
       - name: Run Script
         env:
           NJU_USERNAME: ${{ secrets.username }}

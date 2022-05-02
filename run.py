@@ -31,8 +31,11 @@ if __name__ == "__main__":
         log.error('人员信息、苏康码或行程码信息为空！请检查是否正确地设置了 SECRET 项（GitHub Action）。')
         os._exit(1)
     try:
+        log.info('获取苏康码截图...')
         skm_pic = get_skm_img(skm_token)
+        log.info('苏康码截图获取成功！获取行程码截图...')
         xcm_pic = get_xcm_img(phone)
+        log.info('行程码截图获取成功！')
     except Exception as e:
         log.error('苏康码、行程码截图错误！出现"网络繁忙，请稍后重试"表示苏康码token有误')
         log.error(e)
