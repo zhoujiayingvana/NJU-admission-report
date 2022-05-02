@@ -34,7 +34,7 @@ if __name__ == "__main__":
         skm_pic = get_skm_img(skm_token)
         xcm_pic = get_xcm_img(phone)
     except Exception as e:
-        log.error('苏康码、行程码截图错误！')
+        log.error('苏康码、行程码截图错误！出现"网络繁忙，请稍后重试"表示苏康码token有误')
         log.error(e)
         os._exit(1)
 
