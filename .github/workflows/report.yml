@@ -24,7 +24,6 @@ jobs:
           cp -r ./fonts/ /usr/share/fonts/my_fonts/
           chmod -R 777 /usr/share/fonts/my_fonts
           fc-cache -fv
-          fc-list
           chmod -R 777 ./driver
           python -m pip install --upgrade pip
           pip install -r requirements.txt
