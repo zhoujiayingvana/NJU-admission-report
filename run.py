@@ -2,11 +2,11 @@ from dtable import NjuTableAuth
 from dotenv import load_dotenv
 import logging
 import os
-from utils import decrypt_img
+from screenshot import get_skm_img, get_xcm_img
 
 ROOT_URL = 'https://table.nju.edu.cn'
 TABLE_TOKEN = 'acb58836-10ae-4ec0-a2bf-8cce3245a373'
-
+TABLE_TOKEN = '01ef11fc-5a0e-4adb-9332-d1f119f13cad'  # for test
 
 auth = NjuTableAuth(TABLE_TOKEN)
 
@@ -20,22 +20,21 @@ if __name__ == "__main__":
     username = os.getenv('NJU_USERNAME')
     password = os.getenv('NJU_PASSWORD')
     name = os.getenv('NAME')
-    aes_key = os.getenv('AES_KEY')
-    skm_path = './assets/skm_pic.txt'
-    xcm_path = './assets/xcm_pic.txt'
+    phone = os.getenv('PHONE')
+    skm_token = os.getenv('SKM_TOKEN')
 
-    if username == None or password == None:
+    if username is None or password is None:
         log.error('账户或密码信息为空！请检查是否正确地设置了 SECRET 项（GitHub Action）。')
         os._exit(1)
 
-    if not os.path.exists(skm_path) or not os.path.exists(xcm_path):
-        log.error('苏康码或行程码截图为空！（GitHub Action）。')
+    if name is None or phone is None or skm_token is None:
+        log.error('人员信息、苏康码或行程码信息为空！请检查是否正确地设置了 SECRET 项（GitHub Action）。')
         os._exit(1)
     try:
-        skm_pic = decrypt_img(skm_path, aes_key)
-        xcm_pic = decrypt_img(xcm_path, aes_key)
+        skm_pic = get_skm_img(skm_token)
+        xcm_pic = get_xcm_img(phone)
     except Exception as e:
-        log.error('苏康码、行程码解析错误！')
+        log.error('苏康码、行程码截图错误！')
         log.error(e)
         os._exit(1)
 
