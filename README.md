@@ -9,7 +9,7 @@
 - 2022.5.3 更新了自动获取苏康码和行程码截图
 ##  使用方法
 1. 将本项目 Fork 到自己的仓库。
-2. 进入苏康码网页链接 `https://jsstm.jszwfw.gov.cn/jkmIndex.html`，登录后，复制链接中的`token`字段（注意不需要`uuid`)
+2. 进入苏康码网页链接 `https://scm.szgaj.cn/wjw/health_skm.html?v=1.1`，查询苏康码，查询后会跳转到新的网页链接，复制链接中的`token`字段（注意不需要`uuid`)
    - 例如`https://jsstm.jszwfw.gov.cn/jkmIndex.html?token=aaaaa(复制的区域)&uuid=abcdefg`,复制`token=`后到`&uuid`之前的内容`aaaaa`
 3. 打开自己 Fork 之后的仓库，进入`Settings`选项，点击`Secret`，并选择`New Repository Secret`。依次添加以下变量：
     - `username`: 学号
