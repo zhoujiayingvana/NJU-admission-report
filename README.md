@@ -24,6 +24,15 @@
 8. 之后要是不需要每天填报了，进入setting->Action->General，选择Disable Actions。该仓库的工作流将不再运行。
 ![](./assets/snipaste_01.png?)
 
+截图效果如下：
+<div align="center">
+<img src="./assets/snipaste_02.png" width="30%">
+<img src="./assets/snipaste_03.png" width="30%">
+</div>
+
+## 注意事项
+每次截图默认的等待时间为5秒，项目运行时请勿同时在其他设备访问苏康码，否则会造成截图失败
 ## TODO
 - [ ] driver 文件更好的处理方法
 - [ ] 苏康码截图失败的弹窗处理
+- [ ] 截图页面等待加载判定
