@@ -16,13 +16,6 @@ option.add_argument('--headless')
 option.add_argument('--no-sandbox')
 option.add_argument('--disable-gpu')
 option.add_argument('--disable-dev-shm-usage')
-# 禁用浏览器弹窗
-prefs = {
-    'profile.default_content_setting_values':  {
-        'notifications': 2
-    }
-}
-option.add_experimental_option('prefs', prefs)
 
 
 def get_xcm_img(phone, date=None):

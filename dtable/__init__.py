@@ -70,7 +70,7 @@ class NjuTableAuth:
         assert r.status_code == 200, f'Request Error,{r.status_code}'
         return r.text
 
-    def uploadPic(self, upload_link, dir, relative_path, file):
+    def uploadPic(self, upload_link, dir, relative_path, file, file_name="my_pic.jpg"):
         """
         DESCRIPTION:
             Upload based on upload_link and position 
@@ -86,7 +86,13 @@ class NjuTableAuth:
 
         """
         url = upload_link+'?ret-json=1'
-        files = {'file': file}
+        """
+        You can use a tuple for the files mapping value, with between 2 and 4 elements, 
+        if you need more control. The first element is the filename, followed by the contents, 
+        and an optional content-type header value and an optional mapping of additional headers:
+        files = {'upload_file': ('foobar.txt', open('file.txt','rb'), 'text/x-spam')}
+        """
+        files = {'file': (file_name, file)}
         data = {
             'parent_dir': dir,
             'relative_path': relative_path,

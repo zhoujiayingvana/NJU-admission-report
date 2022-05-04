@@ -52,13 +52,13 @@ if __name__ == "__main__":
         assert upload_info is not None and upload_info != "", f'getUploadLink Error,{upload_info}'
         upload_info = dict(eval(upload_info))
         skm_name = auth.uploadPic(upload_info['upload_link'], upload_info['parent_path'],
-                                  upload_info['img_relative_path'], skm_pic)
+                                  upload_info['img_relative_path'], skm_pic, 'screenshot_01.jpg')
         # upload xcm_pic
         upload_info = auth.getUploadLinkViaFormToken(TABLE_TOKEN)
         assert upload_info is not None and upload_info != "", f'getUploadLink Error,{upload_info}'
         upload_info = dict(eval(upload_info))
         xcm_name = auth.uploadPic(upload_info['upload_link'], upload_info['parent_path'],
-                                  upload_info['img_relative_path'], xcm_pic)
+                                  upload_info['img_relative_path'], xcm_pic, 'screenshot_02.jpg')
 
         # TODO：变更项
         submit_data = {
