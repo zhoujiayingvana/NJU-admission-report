@@ -1,7 +1,9 @@
 from dtable import NjuTableAuth
 from dotenv import load_dotenv
+from pytz import timezone
 import logging
 import os
+import datetime
 from screenshot import get_skm_img, get_xcm_img
 
 ROOT_URL = 'https://table.nju.edu.cn'
@@ -46,19 +48,21 @@ if __name__ == "__main__":
         os._exit(1)
     log.info('登录成功！')
 
-    # upload skm_pic
     try:
+        current_time = datetime.datetime.now(
+            timezone('Asia/Shanghai')).strftime("%Y%m%d%H%M%S")
+        # upload skm_pic
         upload_info = auth.getUploadLinkViaFormToken(TABLE_TOKEN)
         assert upload_info is not None and upload_info != "", f'getUploadLink Error,{upload_info}'
         upload_info = dict(eval(upload_info))
         skm_name = auth.uploadPic(upload_info['upload_link'], upload_info['parent_path'],
-                                  upload_info['img_relative_path'], skm_pic, 'screenshot_01.jpg')
+                                  upload_info['img_relative_path'], skm_pic, f'screenshot_01_{current_time}.jpg')
         # upload xcm_pic
         upload_info = auth.getUploadLinkViaFormToken(TABLE_TOKEN)
         assert upload_info is not None and upload_info != "", f'getUploadLink Error,{upload_info}'
         upload_info = dict(eval(upload_info))
         xcm_name = auth.uploadPic(upload_info['upload_link'], upload_info['parent_path'],
-                                  upload_info['img_relative_path'], xcm_pic, 'screenshot_02.jpg')
+                                  upload_info['img_relative_path'], xcm_pic, f'screenshot_02_{current_time}.jpg')
 
         # TODO：变更项
         submit_data = {
