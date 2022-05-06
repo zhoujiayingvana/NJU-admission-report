@@ -72,7 +72,6 @@ if __name__ == "__main__":
         xcm_name = auth.uploadPic(upload_info['upload_link'], upload_info['parent_path'],
                                   upload_info['img_relative_path'], xcm_pic, f'screenshot_02_{current_time}.jpg')
 
-        # TODO：变更项
         submit_data = {
             '人员': name,
             '学号': username,
