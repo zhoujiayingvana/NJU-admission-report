@@ -4,6 +4,7 @@ from pytz import timezone
 import logging
 import os
 import datetime
+import time
 from screenshot import get_skm_img, get_xcm_img
 
 ROOT_URL = 'https://table.nju.edu.cn'
@@ -42,11 +43,18 @@ if __name__ == "__main__":
         log.error(e)
         os._exit(1)
 
-    ok = auth.login(username, password)
+    login_count = 3
+    for _ in range(login_count):
+        ok = auth.login(username, password)
+        if not ok:
+            log.error('登陆失败，尝试重新登陆...')
+            time.sleep(3)
+            continue
+        log.info('登录成功！')
+        break
     if not ok:
-        log.error('登陆失败')
+        log.error("登陆失败，请手动申报")
         os._exit(1)
-    log.info('登录成功！')
 
     try:
         current_time = datetime.datetime.now(
